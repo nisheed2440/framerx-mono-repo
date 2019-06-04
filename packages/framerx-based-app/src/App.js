@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'nbs-fonts/lib/index.css';
+import Button from './Button';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <Button text="12345" iconSide={true} buttonType="link"></Button>
       </header>
     </div>
   );

@@ -1,0 +1,40 @@
+/**
+ * @font-face LESS Mixin
+ * use: .font-face(
+ *   @font-family, // name
+ *   @file-path,   // absolute/relative URL to font files
+ *   @font-weight, // light/normal/bold/inherit | 300/400/700
+ *   @font-style   // italic/normal/inherit
+ * )
+ */
+ @cache-version: `(+new Date).toString(36)` ;
+
+ .font-face(@font-family, @file-path, @font-weight, @font-style) {
+    @font-face {
+      font-family: @font-family;
+      src: url('@{file-path}.eot?@{cache-version}');
+      src: url('@{file-path}.eot?@{cache-version}#iefix') format('embedded-opentype'),
+        url('@{file-path}.woff?@{cache-version}') format('woff'),
+        url('@{file-path}.ttf?@{cache-version}') format('truetype'),
+        url('@{file-path}.svg?@{cache-version}#@{file-path}') format('svg');
+      font-weight: @font-weight;
+      font-style: @font-style;
+    }
+  }
+  
+  /**
+   * font LESS Mixin
+   * use: .font(
+   *   @font-family, // name
+   *   @file-size,   // any unit/inherit
+   *   @font-weight, // light/normal/bold/inherit | 300/400/700
+   *   @font-style   // italic/normal/inherit
+   * )
+   */
+  .font(@font-family, @font-size: normal, @font-weight: normal, @font-style: normal, @font-variant: normal){
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
+    font-variant: @font-variant;
+  }

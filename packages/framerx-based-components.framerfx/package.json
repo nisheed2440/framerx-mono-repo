@@ -1,0 +1,22 @@
+{
+	"name": "framerx-based-components",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/react": "^16.8"
+	},
+	"peerDependencies": {
+		"framer": "^1.0",
+		"react": "^16.8"
+	},
+	"framer": {
+		"id": "0ca69ab2-8e8d-4e66-91f9-1b5ede65474a"
+	},
+	"author": "Nisheed Jagadish",
+	"dependencies": {
+		"@emotion/core": "^10.0.10",
+		"@emotion/styled": "^10.0.11",
+		"nbs-fonts": "^1.0.0"
+	}
+}

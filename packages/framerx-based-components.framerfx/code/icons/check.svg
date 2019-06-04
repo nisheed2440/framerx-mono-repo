@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Icon/Arrow/Active Copy 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="12" cy="12" r="12"></circle>
+    </defs>
+    <g id="Elements-&amp;-Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-248.000000, -138.000000)">
+            <g id="🐼-Icons/Tick" transform="translate(248.000000, 138.000000)">
+                <g id="Fill">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#1070D4" xlink:href="#path-1"></use>
+                    <g id="Elements/Colours/Primary-grey" mask="url(#mask-2)" fill="#3B3B3B">
+                        <polygon id="Card" points="0 0 24 0 24 24 0 24"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(4.000000, 6.000000)" fill="#FFFFFF">
+                    <path d="M5.41685424,8.4826407 L13.1923882,0.707106781 C13.5829124,0.316582489 14.2160774,0.316582489 14.6066017,0.707106781 C14.997126,1.09763107 14.997126,1.73079605 14.6066017,2.12132034 L6.18835876,10.5395633 C6.1690639,10.5626877 6.14856232,10.5851458 6.12685404,10.6068541 C5.91922723,10.8144809 5.6430146,10.9117205 5.37114506,10.8985728 C5.12976274,10.8882315 4.89141282,10.7909078 4.70710678,10.6066017 C4.68637354,10.5858685 4.66674105,10.5644513 4.6482093,10.5424229 L1.17710657,7.07132015 C0.78658228,6.68079586 0.78658228,6.04763088 1.17710657,5.65710659 C1.56763086,5.2665823 2.20079584,5.2665823 2.59132013,5.65710659 L5.41685424,8.4826407 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Icon/Arrow/Active Copy 18</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15,27 C21.627417,27 27,21.627417 27,15 C27,8.372583 21.627417,3 15,3 C8.372583,3 3,8.372583 3,15 C3,21.627417 8.372583,27 15,27 Z M15,30 C6.71572875,30 0,23.2842712 0,15 C0,6.71572875 6.71572875,0 15,0 C23.2842712,0 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z" id="path-1"></path>
+        <circle id="path-3" cx="12" cy="12" r="12"></circle>
+    </defs>
+    <g id="Elements-&amp;-Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-419.000000, -138.000000)">
+            <g id="🐼-Icons/?/Fill" transform="translate(419.000000, 138.000000)">
+                <g id="Focus" stroke-width="1" fill-rule="evenodd" transform="translate(-3.000000, -3.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use fill-opacity="0" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                </g>
+                <g id="Fill" stroke-width="1" fill-rule="evenodd">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Mask" fill="#1070D4" xlink:href="#path-3"></use>
+                    <g id="Elements/Colours/Primary-grey" mask="url(#mask-4)" fill="#3B3B3B">
+                        <g transform="translate(-14.000000, -14.000000)" id="Card">
+                            <polygon points="0 0 53 0 53 48 0 48"></polygon>
+                        </g>
+                    </g>
+                </g>
+                <text id="Icon" font-family="NBS-Bold, NBS Medium" font-size="18" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="8.26464844" y="16">?</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
