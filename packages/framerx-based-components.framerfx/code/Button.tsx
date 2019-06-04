@@ -108,12 +108,12 @@ function ButtonInner(props) {
     const { text, hasIcon, iconSide, iconColor } = props
     return (
         <ButtonInnerText>
-            {hasIcon && iconSide && (
+            {hasIcon && iconSide === "left" && (
                 <ChevronRight size={15} iconSide="left" color={iconColor} />
             )}
             <span className="inner-text">{text}</span>
-            {hasIcon && !iconSide && (
-                <ChevronRight size={15} color={iconColor} />
+            {hasIcon && iconSide === "right" && (
+                <ChevronRight size={15} iconSide="right" color={iconColor} />
             )}
         </ButtonInnerText>
     )
@@ -121,7 +121,6 @@ function ButtonInner(props) {
 
 // Open Preview (CMD + P)
 // API Reference: https://www.framer.com/api
-
 export function Button(props) {
     const { text, buttonType, hasIcon, iconSide } = props
     switch (buttonType) {
@@ -164,6 +163,8 @@ Button.defaultProps = {
     isBlock: false,
     buttonType: "button",
     href: "",
+    hasIcon: true,
+    iconSide: "left",
 }
 
 // FramerX Controls to be used by designers

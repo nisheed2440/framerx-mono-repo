@@ -3,22 +3,30 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import "nbs-fonts/lib/index.less";
 
-export const commonIconStyles = props => css `
-  position: absolute;
-  font-size: 35px;
-`;
-const ButtonIconForward = styled.i`
-  ${commonIconStyles}
-  top: 0px;
-  right: -12px;
-`;
-const ButtonIconBackward = styled.i`
-  ${commonIconStyles}
-  top: 0px;
-  left: -12px;
-  transform: rotate(180deg);
-`;
-
+// Chevron Icon
+const ChevronRight = props => {
+  const { color = "#004A8F", size = 50, iconSide } = props
+  console.log(props)
+  return (
+      <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 238.003 238.003"
+          width={size}
+          height={size}
+          style={{
+              transform:
+                  iconSide === "left" ? "rotate(180deg)" : "rotate(0deg)",
+              margin: iconSide === "left" ? "0 4px 0 0" : "0 0 0 4px",
+          }}
+      >
+          <path
+              d="M181.776,107.719L78.705,4.648c-6.198-6.198-16.273-6.198-22.47,0s-6.198,16.273,0,22.47 l91.883,91.883l-91.883,91.883c-6.198,6.198-6.198,16.273,0,22.47s16.273,6.198,22.47,0l103.071-103.039 c3.146-3.146,4.672-7.246,4.64-11.283C186.416,114.902,184.89,110.833,181.776,107.719z"
+              fill={color}
+          />
+      </svg>
+  )
+}
+// Common styles for button
 export const commonButtonStyles = props => css `
   box-sizing: border-box;
   border: 2px solid ${props.borderColor || "#004A8F"};
@@ -39,125 +47,114 @@ export const commonButtonStyles = props => css `
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
   transition: box-shadow 0.3s ease-in-out;
-  &:hover,
-  &:focus,
-  &:active {
-    box-shadow: 0px 0px 0px 4px ${props.shadowColor || "#80BCE4"};
+  &:hover, &:focus, &:active {
+      box-shadow: 0px 0px 0px 4px ${props.shadowColor || "#80BCE4"};
   }
   &:disabled {
-    box-shadow: none;
+      box-shadow: none;
   }
-`;
+`
+// Common link styles
+export const commonLinkStyles = props => css `
+  display: inline-block;
+  font-family: "nbs-medium";
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  color: #004A8F;
+  text-decoration: none;
+  position: relative;
+  color: ${props.color || "#004A8F"};
+  .inner-text {
+      border-bottom: 1px solid ${props.color || "#004A8F"};
+  }
+  &:hover{
+      color: ${props.hoverColor || "#0078C8"};
+      .inner-text {
+          border-bottom-color: ${props.hoverColor || "#0078C8"};
+      }
+      path{
+          fill: ${props.hoverColor || "#0078C8"}
+      }
+  }
+`
+
 // The link button as styled a tag
 const LinkButton = styled.a`
   ${commonButtonStyles}
   text-decoration: none;
-`;
+`
 // The  button as styled button tag
 const ButtonTag = styled.button`
   ${commonButtonStyles}
-`;
+`
 
-const LinkText = styled.span`
-  display: inline-block;
-  position: relative;
-  padding-right: ${props =>
-    props.isButton && props.hasIcon ? (props.iconSide ? 0 : "16px") : 0};
-  padding-left: ${props =>
-    props.isButton && props.hasIcon ? (props.iconSide ? "16px" : 0) : 0};
-`;
-
+// The link
 const LinkTag = styled.a`
-  display: inline-block;
-  font-family: "NBS Medium";
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1.8;
-  text-align: center;
-  color: #004a8f;
-  text-decoration: none;
-  position: relative;
-  color: #004a8f;
-  padding-right: ${props =>
-    props.hasIcon ? (props.iconSide ? 0 : "16px") : 0};
-  padding-left: ${props => (props.hasIcon ? (props.iconSide ? "16px" : 0) : 0)};
-  span {
-    border-bottom: 1px solid #004a8f;
-  }
-  &:hover {
-    color: #0078c8;
-    span {
-      border-bottom-color: #0078c8;
-    }
-  }
-`;
+  ${commonLinkStyles}
+`
+// The button
+const ButtonInnerText = styled.span`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
+// Button inner Text and Icon
+function ButtonInner(props) {
+  const { text, hasIcon, iconSide, iconColor } = props
+  return (
+      <ButtonInnerText>
+          {hasIcon && (iconSide === "left") && (
+              <ChevronRight size={15} iconSide="left" color={iconColor} />
+          )}
+          <span className="inner-text">{text}</span>
+          {hasIcon && (iconSide === "right") && (
+              <ChevronRight size={15} color={iconColor} />
+          )}
+      </ButtonInnerText>
+  )
+}
 
 // Open Preview (CMD + P)
 // API Reference: https://www.framer.com/api
 
 export default function Button(props) {
-  const { text, buttonType, hasIcon, iconSide } = props;
+  const { buttonType } = props
   switch (buttonType) {
-    case "link":
-      return (
-        <LinkTag {...props}>
-          {hasIcon && iconSide && (
-            <ButtonIconBackward className="icon-nbs icon-nbs-dropdownright" />
-          )}
-          <LinkText>{text}</LinkText>
-          {hasIcon && !iconSide && (
-            <ButtonIconForward className="icon-nbs icon-nbs-dropdownright" />
-          )}
-        </LinkTag>
-      );
-    case "button-link":
-      return (
-        <LinkButton {...props}>
-          <LinkText {...props} isButton={true}>
-            {hasIcon && iconSide && (
-              <ButtonIconBackward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-            {text}
-            {hasIcon && !iconSide && (
-              <ButtonIconForward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-          </LinkText>
-        </LinkButton>
-      );
-    case "button-green":
-      return (
-        <ButtonTag
-          {...props}
-          borderColor="#3B8634"
-          backgroundColor="#3B8634"
-          shadowColor="#93D27F"
-        >
-          <LinkText {...props} isButton={true}>
-            {hasIcon && iconSide && (
-              <ButtonIconBackward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-            {text}
-            {hasIcon && !iconSide && (
-              <ButtonIconForward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-          </LinkText>
-        </ButtonTag>
-      );
-    case "button":
-    default:
-      return (
-        <ButtonTag {...props} color="#004A8F" backgroundColor="#FFFFFF">
-          <LinkText {...props} isButton={true}>
-            {hasIcon && iconSide && (
-              <ButtonIconBackward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-            {text}
-            {hasIcon && !iconSide && (
-              <ButtonIconForward className="icon-nbs icon-nbs-dropdownright" />
-            )}
-          </LinkText>
-        </ButtonTag>
-      );
+      case "link":
+          return (
+              <LinkTag {...props}>
+                  <ButtonInner {...props} />
+              </LinkTag>
+          )
+      case "button-link":
+          return (
+              <LinkButton {...props}>
+                  <ButtonInner {...props} iconColor="#FFFFFF" />
+              </LinkButton>
+          )
+      case "button-green":
+          return (
+              <ButtonTag
+                  {...props}
+                  borderColor="#3B8634"
+                  backgroundColor="#3B8634"
+                  shadowColor="#93D27F"
+              >
+                  <ButtonInner {...props} iconColor="#FFFFFF" />
+              </ButtonTag>
+          )
+      case "button":
+      default:
+          return (
+              <ButtonTag {...props} color="#004A8F" backgroundColor="#FFFFFF">
+                  <ButtonInner {...props} />
+              </ButtonTag>
+          )
   }
 }
 
@@ -168,5 +165,5 @@ Button.defaultProps = {
   buttonType: "button",
   href: "",
   hasIcon: true,
-  iconSide: false,
-};
+  iconSide: "left",
+}
