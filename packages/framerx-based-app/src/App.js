@@ -10,14 +10,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Typography type="h3" color="#ffffff">
-          <span className="icon-nbs icon-nbs-close" />
+        <Typography type="h1" color="#ffffff">
           Edit <code>src/App.js</code> and save to reload.
         </Typography>
         <Button
           text="Learn React"
-          iconSide="right"
-          buttonType="button-link"
+          iconSide="left"
+          buttonType="link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
